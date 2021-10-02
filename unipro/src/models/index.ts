@@ -20,3 +20,6 @@ export * from './modalidad.model';
 export * from './tipo-solicitud.model';
 export * from './recordatorios.model';
 export * from './solicitud.model';
+export * from './usuario.model';
+export * from './roles.model';
+export * from './usuario-roles.model';
