@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {ProponenteTrabajo} from './proponente-trabajo.model';
 
 @model({settings: {strict: false}})
 export class Solicitud extends Entity {
@@ -8,13 +9,6 @@ export class Solicitud extends Entity {
     generated: true,
   })
   id_solicitud?: number;
-
-  @property({
-    type: 'number',
-    required: true,
-  })
-  id_proponente: number;
-
   @property({
     type: 'date',
     required: true,
@@ -56,6 +50,8 @@ export class Solicitud extends Entity {
   })
   id_tipo_solicitud: number;
 
+  @belongsTo(() => ProponenteTrabajo, {name: 'solicitudes'})
+  id_proponente: number;
   // Define well-known properties here
 
   // Indexer property to allow additional data

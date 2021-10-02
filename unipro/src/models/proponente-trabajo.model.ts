@@ -53,6 +53,10 @@ export class ProponenteTrabajo extends Entity {
   })
   foto?: string;
 
+  @property({
+    type: 'number',
+  })
+  id_tipo_vinculacion?: number;
   // Define well-known properties here
 
   // Indexer property to allow additional data
