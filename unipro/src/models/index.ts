@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+export * from './comite-solicitud.model';
+export * from './tipo-comite.model';
+=======
+<<<<<<< HEAD
 export * from './jurados.model';
 export * from './area-investigacion.model';
 export * from './jurados-investigacion.model';
@@ -11,5 +15,16 @@ export * from './departamento.model';
 export * from './facultad.model';
 export * from './correos-notificacion.model';
 >>>>>>> 532bb6e3ad5270f0e2058cae210094523c43088e
+<<<<<<< HEAD
 export * from './evaluacion-solicitud.model';
 export * from './resultado-evaluacion.model';
+=======
+>>>>>>> 181cabd591ba2f7305feb8224716f5031ec280da
+export * from './modalidad.model';
+export * from './tipo-solicitud.model';
+export * from './recordatorios.model';
+export * from './solicitud.model';
+export * from './usuario.model';
+export * from './roles.model';
+export * from './usuario-roles.model';
+>>>>>>> 32f46a26062ad5bd3e9c4b15f6e2ff4c6dd906de
