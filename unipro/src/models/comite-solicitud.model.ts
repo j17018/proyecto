@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {TipoComite} from './tipo-comite.model';
 
 @model({settings: {strict: false}})
 export class ComiteSolicitud extends Entity {
@@ -14,19 +15,14 @@ export class ComiteSolicitud extends Entity {
     required: true,
   })
   id_solicitud: number;
-
-  @property({
-    type: 'number',
-    required: true,
-  })
-  id_comite: number;
-
   @property({
     type: 'string',
     required: true,
   })
   respuesta: string;
 
+  @belongsTo(() => TipoComite, {name: 'comites_tipos_solicitud'})
+  id_comite: number;
   // Define well-known properties here
 
   // Indexer property to allow additional data

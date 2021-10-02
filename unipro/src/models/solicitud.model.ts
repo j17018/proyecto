@@ -1,4 +1,6 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Recordatorios} from './recordatorios.model';
+import {ComiteSolicitud} from './comite-solicitud.model';
 
 @model({settings: {strict: false}})
 export class Solicitud extends Entity {
@@ -56,6 +58,14 @@ export class Solicitud extends Entity {
   })
   id_tipo_solicitud: number;
 
+  @hasMany(() => Recordatorios, {keyTo: 'id_solicitud'})
+  recordatorios_solicityd_id_fk: Recordatorios[];
+
+  @hasMany(() => Recordatorios, {keyTo: 'id_solicitud'})
+  recordatorios_id_solicitud: Recordatorios[];
+
+  @hasMany(() => ComiteSolicitud, {keyTo: 'id_solicitud'})
+  comite_solicitudes: ComiteSolicitud[];
   // Define well-known properties here
 
   // Indexer property to allow additional data
