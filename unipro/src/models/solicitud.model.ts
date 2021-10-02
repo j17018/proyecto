@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import {Entity, model, property, hasMany} from '@loopback/repository';
 import {Recordatorios} from './recordatorios.model';
 import {ComiteSolicitud} from './comite-solicitud.model';
+=======
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {ProponenteTrabajo} from './proponente-trabajo.model';
+>>>>>>> c6a3ff1e7027b7853a783ed38ed1bb0201b5296d
 
 @model({settings: {strict: false}})
 export class Solicitud extends Entity {
@@ -10,13 +15,6 @@ export class Solicitud extends Entity {
     generated: true,
   })
   id_solicitud?: number;
-
-  @property({
-    type: 'number',
-    required: true,
-  })
-  id_proponente: number;
-
   @property({
     type: 'date',
     required: true,
@@ -58,6 +56,7 @@ export class Solicitud extends Entity {
   })
   id_tipo_solicitud: number;
 
+<<<<<<< HEAD
   @hasMany(() => Recordatorios, {keyTo: 'id_solicitud'})
   recordatorios_solicityd_id_fk: Recordatorios[];
 
@@ -66,6 +65,10 @@ export class Solicitud extends Entity {
 
   @hasMany(() => ComiteSolicitud, {keyTo: 'id_solicitud'})
   comite_solicitudes: ComiteSolicitud[];
+=======
+  @belongsTo(() => ProponenteTrabajo, {name: 'solicitudes'})
+  id_proponente: number;
+>>>>>>> c6a3ff1e7027b7853a783ed38ed1bb0201b5296d
   // Define well-known properties here
 
   // Indexer property to allow additional data

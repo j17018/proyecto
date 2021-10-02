@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasOne} from '@loopback/repository';
+import {ProponenteTrabajo} from './proponente-trabajo.model';
 
 @model({settings: {strict: false}})
 export class TipoVinculacion extends Entity {
@@ -15,6 +16,8 @@ export class TipoVinculacion extends Entity {
   })
   nombre: string;
 
+  @hasOne(() => ProponenteTrabajo, {keyTo: 'id_tipo_vinculacion'})
+  tiene: ProponenteTrabajo;
   // Define well-known properties here
 
   // Indexer property to allow additional data
