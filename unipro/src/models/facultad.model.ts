@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Departamento} from './departamento.model';
 
 @model({settings: {strict: false}})
 export class Facultad extends Entity {
@@ -21,6 +22,8 @@ export class Facultad extends Entity {
   })
   nombre: string;
 
+  @hasMany(() => Departamento, {keyTo: 'id_facultad'})
+  tiene: Departamento[];
   // Define well-known properties here
 
   // Indexer property to allow additional data

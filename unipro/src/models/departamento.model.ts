@@ -15,6 +15,10 @@ export class Departamento extends Entity {
   })
   nombre: string;
 
+  @property({
+    type: 'number',
+  })
+  id_facultad?: number;
   // Define well-known properties here
 
   // Indexer property to allow additional data

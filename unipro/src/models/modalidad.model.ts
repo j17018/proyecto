@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasOne} from '@loopback/repository';
+import {Solicitud} from './solicitud.model';
 
 @model({settings: {strict: false}})
 export class Modalidad extends Entity {
@@ -15,6 +16,8 @@ export class Modalidad extends Entity {
   })
   nombre: string;
 
+  @hasOne(() => Solicitud, {keyTo: 'id_modalidad'})
+  id_modalidad_fk: Solicitud;
   // Define well-known properties here
 
   // Indexer property to allow additional data
