@@ -1,4 +1,7 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, belongsTo, hasOne} from '@loopback/repository';
+import {Jurados} from './jurados.model';
+import {ResultadoEvaluacion} from './resultado-evaluacion.model';
+import {Solicitud} from './solicitud.model';
 
 @model({settings: {strict: false}})
 export class EvaluacionSolicitud extends Entity {
@@ -8,19 +11,6 @@ export class EvaluacionSolicitud extends Entity {
     generated: true,
   })
   id?: number;
-
-  @property({
-    type: 'number',
-    required: true,
-  })
-  id_solicitud: number;
-
-  @property({
-    type: 'number',
-    required: true,
-  })
-  id_jurado: number;
-
   @property({
     type: 'date',
     required: true,
@@ -45,6 +35,17 @@ export class EvaluacionSolicitud extends Entity {
   })
   observaciones: string;
 
+  @belongsTo(() => Jurados, {name: 'id_jurados'})
+  id_jurado: number;
+
+  @belongsTo(() => ResultadoEvaluacion, {name: 'id_evaluacion_solicitudes'})
+  id_evaluacion_solicitud: number;
+
+  @belongsTo(() => ResultadoEvaluacion, {name: 'id_solicitudes'})
+  id_solicitud: number;
+
+  @hasOne(() => Solicitud, {keyTo: 'id_solicitud'})
+  solicitudes: Solicitud;
   // Define well-known properties here
 
   // Indexer property to allow additional data

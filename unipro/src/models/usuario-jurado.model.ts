@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {Jurados} from './jurados.model';
 
 @model({settings: {strict: false}})
 export class UsuarioJurado extends Entity {
@@ -8,19 +9,14 @@ export class UsuarioJurado extends Entity {
     generated: true,
   })
   id?: number;
-
-  @property({
-    type: 'number',
-    required: true,
-  })
-  id_jurado: number;
-
   @property({
     type: 'string',
     required: true,
   })
   clave: string;
 
+  @belongsTo(() => Jurados, {name: 'id_jurados'})
+  id_jurado: number;
   // Define well-known properties here
 
   // Indexer property to allow additional data

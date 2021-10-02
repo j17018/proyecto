@@ -1,4 +1,6 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {AreaInvestigacion} from './area-investigacion.model';
+import {JuradosInvestigacion} from './jurados-investigacion.model';
 
 @model({settings: {strict: false}})
 export class Jurados extends Entity {
@@ -33,6 +35,8 @@ export class Jurados extends Entity {
   })
   entidad: string;
 
+  @hasMany(() => AreaInvestigacion, {through: {model: () => JuradosInvestigacion, keyFrom: 'codigo_jurado', keyTo: 'codigo_investigacion'}})
+  JuradosInvestigacion: AreaInvestigacion[];
   // Define well-known properties here
 
   // Indexer property to allow additional data

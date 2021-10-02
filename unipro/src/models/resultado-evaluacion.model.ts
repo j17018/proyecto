@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {EvaluacionSolicitud} from './evaluacion-solicitud.model';
 
 @model({settings: {strict: false}})
 export class ResultadoEvaluacion extends Entity {
@@ -8,13 +9,6 @@ export class ResultadoEvaluacion extends Entity {
     generated: true,
   })
   id?: number;
-
-  @property({
-    type: 'number',
-    required: true,
-  })
-  id_evaluacion_solicitud: number;
-
   @property({
     type: 'string',
     required: true,
@@ -27,6 +21,8 @@ export class ResultadoEvaluacion extends Entity {
   })
   formato_diligenciado: string;
 
+  @belongsTo(() => EvaluacionSolicitud, {name: 'id_evaluacion_solicitudes'})
+  id_evaluacion_solicitud: number;
   // Define well-known properties here
 
   // Indexer property to allow additional data
