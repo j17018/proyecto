@@ -3,11 +3,11 @@ import {Entity, model, property} from '@loopback/repository';
 @model({settings: {strict: false}})
 export class DepartamentoProponente extends Entity {
   @property({
-    type: 'string',
+    type: 'number',
     id: true,
     generated: true,
   })
-  id?: string;
+  id?: number;
 
   @property({
     type: 'number',
@@ -36,4 +36,5 @@ export interface DepartamentoProponenteRelations {
   // describe navigational properties here
 }
 
-export type DepartamentoProponenteWithRelations = DepartamentoProponente & DepartamentoProponenteRelations;
+export type DepartamentoProponenteWithRelations = DepartamentoProponente &
+  DepartamentoProponenteRelations;
