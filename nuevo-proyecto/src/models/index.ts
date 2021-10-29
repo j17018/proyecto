@@ -3,3 +3,8 @@ export * from './jurados-investigacion.model';
 export * from './jurados.model';
 export * from './resultado-evaluacion.model';
 export * from './evaluacion-solicitud.model';
+export * from './proponente-trabajo.model';
+export * from './tipo-vinculacion.model';
+export * from './departamento-proponente.model';
+export * from './departamento.model';
+export * from './facultad.model';
