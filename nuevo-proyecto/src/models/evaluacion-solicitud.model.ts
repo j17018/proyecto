@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasOne} from '@loopback/repository';
+import {ResultadoEvaluacion} from './resultado-evaluacion.model';
 
 @model({settings: {strict: false}})
 export class EvaluacionSolicitud extends Entity {
@@ -45,6 +46,8 @@ export class EvaluacionSolicitud extends Entity {
   })
   observaciones: string;
 
+  @hasOne(() => ResultadoEvaluacion, {keyTo: 'id_evaluacion_solicitud'})
+  resultado_evaluacionsolicitud_relacion: ResultadoEvaluacion;
   // Define well-known properties here
 
   // Indexer property to allow additional data
