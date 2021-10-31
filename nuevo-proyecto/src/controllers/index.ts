@@ -5,3 +5,8 @@ export * from './evaluacion-solicitud-resultado-evaluacion.controller';
 export * from './jurados.controller';
 export * from './area-investigacion.controller';
 export * from './jurados-investigacion.controller';
+export * from './proponente-trabajo.controller';
+export * from './tipo-vinculacion.controller';
+export * from './departamento-proponente.controller';
+export * from './departamento.controller';
+export * from './facultad.controller';
