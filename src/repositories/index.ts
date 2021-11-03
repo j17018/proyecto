@@ -14,3 +14,6 @@ export * from './solicitud.repository';
 export * from './tipo-comite.repository';
 export * from './tipo-solicitud.repository';
 export * from './tipo-vinculacion.repository';
+export * from './roles.repository';
+export * from './usuario-roles.repository';
+export * from './usuario.repository';

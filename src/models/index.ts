@@ -14,3 +14,6 @@ export * from './tipo-solicitud.model';
 export * from './recordatorios.model';
 export * from './comite-solicitud.model';
 export * from './tipo-comite.model';
+export * from './usuario.model';
+export * from './roles.model';
+export * from './usuario-roles.model';
