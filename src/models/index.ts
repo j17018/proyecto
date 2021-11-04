@@ -17,3 +17,4 @@ export * from './tipo-comite.model';
 export * from './usuario.model';
 export * from './roles.model';
 export * from './usuario-roles.model';
+export * from './credenciales.model';
