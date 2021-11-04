@@ -17,7 +17,7 @@ import {
   requestBody,
   response,
 } from '@loopback/rest';
-import {Usuario} from '../models';
+import {Credenciales,Usuario} from '../models';
 import {UsuarioRepository} from '../repositories';
 
 export class UsuarioController {
@@ -147,4 +147,34 @@ export class UsuarioController {
   async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.usuarioRepository.deleteById(id);
   }
+
+  //Identificacion Usuarios
+  @post("/identificar-usuario", {
+    responses: {
+      '200': {
+        description: "Identificación de usuarios"
+      }
+    }
+  })
+  async identificar(
+    @requestBody() credenciales: Credenciales
+  ): Promise<object | null> {
+    let usuario = await this.usuarioRepository.findOne({
+      where:{
+        correo_electronico:credenciales.correo_electronico,
+        contrasena: credenciales.contrasena
+      }
+    });
+    //let token = "";
+    //if (usuario) {
+      //usuario.clave = "";
+      //token = await this.servicioSesionUsuario.CrearToken(usuario);
+    //}
+    return usuario;
+    //return {
+      //tk: token,
+      //usuario: usuario
+    //};
+  }
+
 }
