@@ -4,27 +4,21 @@ import {
   Filter,
   FilterExcludingWhere,
   repository,
-  Where,
+  Where
 } from '@loopback/repository';
 import {
-  post,
-  param,
-  get,
-  getModelSchemaRef,
-  patch,
-  put,
-  del,
-  requestBody,
-  response,
+  del, get,
+  getModelSchemaRef, param, patch, post, put, requestBody,
+  response
 } from '@loopback/rest';
-import {Credenciales,Usuario} from '../models';
+import {Credenciales, Usuario} from '../models';
 import {UsuarioRepository} from '../repositories';
 
 export class UsuarioController {
   constructor(
     @repository(UsuarioRepository)
-    public usuarioRepository : UsuarioRepository,
-  ) {}
+    public usuarioRepository: UsuarioRepository,
+  ) { }
 
   @post('/usuarios')
   @response(200, {
@@ -160,20 +154,20 @@ export class UsuarioController {
     @requestBody() credenciales: Credenciales
   ): Promise<object | null> {
     let usuario = await this.usuarioRepository.findOne({
-      where:{
-        correo_electronico:credenciales.correo_electronico,
+      where: {
+        correo_electronico: credenciales.correo_electronico,
         contrasena: credenciales.contrasena
       }
     });
     //let token = "";
     //if (usuario) {
-      //usuario.clave = "";
-      //token = await this.servicioSesionUsuario.CrearToken(usuario);
+    //usuario.clave = "";
+    //token = await this.servicioSesionUsuario.CrearToken(usuario);
     //}
     return usuario;
     //return {
-      //tk: token,
-      //usuario: usuario
+    //tk: token,
+    //usuario: usuario
     //};
   }
 
