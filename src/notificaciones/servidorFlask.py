@@ -30,7 +30,7 @@ def enviarCorreo():
         html_content=mensaje)
         try:
             # sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
-            sg = SendGridAPIClient('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')
+            sg = SendGridAPIClient('')
             response = sg.send(message)
             print("Enviado")
             return "OK"
